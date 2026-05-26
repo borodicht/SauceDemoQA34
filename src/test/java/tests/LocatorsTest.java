@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class LocatorsTest extends BaseTest {
 
-    @Test
+    @Test(groups = "regression")
     public void checkLocators() {
         driver.get("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name")).sendKeys("standard_user");

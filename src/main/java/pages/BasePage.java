@@ -10,6 +10,7 @@ import java.time.Duration;
 
 import static org.testng.Assert.assertEquals;
 
+
 public class BasePage {
 
     WebDriver driver;
