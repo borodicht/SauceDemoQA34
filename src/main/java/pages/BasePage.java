@@ -10,7 +10,8 @@ import java.time.Duration;
 
 import static org.testng.Assert.assertEquals;
 
-public class BasePage {
+
+public abstract class BasePage {
 
     WebDriver driver;
     WebDriverWait wait;
@@ -41,4 +42,8 @@ public class BasePage {
             }
         };
     }
+
+    public abstract BasePage isPageOpened();
+
+    public abstract BasePage open();
 }

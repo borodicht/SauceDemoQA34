@@ -3,15 +3,28 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class CartPage extends BasePage{
 
     public CartPage(WebDriver driver) {
         super(driver);
+    }
+
+    @Override
+    public CartPage isPageOpened() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".inventory_item_name")));
+        return this;
+    }
+
+    @Override
+    public CartPage open() {
+        driver.get(BASE_URL + "/cart");
+        return this;
     }
 
     public boolean isProductInCart(String product) {
