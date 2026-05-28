@@ -23,20 +23,16 @@ public class CartTest extends BaseTest {
     @TmsLink("SD-T01")
     @Issue("BUG-01")
     public void checkCart() {
-        //логинимся
-        loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
-
-        //добавляем товары в корзину
-        productsPage.addToCart("Sauce Labs Backpack");
-        productsPage.addToCart("Test.allTheThings() T-Shirt (Red)");
-
-        //нажимаем на кнопку корзина
-        productsPage.clickCart();
-
+        loginPage.open()
+                .isPageOpened()
+                .login("standard_user", "secret_sauce")
+                .isPageOpened()
+                .addToCart("Sauce Labs Backpack")
+                .addToCart("Test.allTheThings() T-Shirt (Red)")
+                .clickCart();
         assertTrue(cartPage.isProductInCart("Sauce Labs Backpack"), "SO BAAAAAAD");
-        assertEquals(cartPage.getProductNameFromCart(0), "Sauce Labs Backpac", "SO BAAAAAD");
+        assertEquals(cartPage.getProductNameFromCart(0), "Sauce Labs Backpack", "SO BAAAAAD");
         assertEquals(cartPage.getProductNameFromCart(1), "Test.allTheThings() T-Shirt (Red)", "SO BAAAAAD");
-        assertTrue(cartPage.getProductsName().contains("Sauce Labs Backpac"), "SO BAAAAAD");
+        assertTrue(cartPage.getProductsName().contains("Sauce Labs Backpack"), "SO BAAAAAD");
     }
 }

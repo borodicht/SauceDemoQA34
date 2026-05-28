@@ -38,7 +38,7 @@ public class LoginTest extends BaseTest {
             testName = "Проверка логина с пустым именем пользователя", groups = "regression")
     public void chekLoginWithEmptyUserName() {
         loginPage.open();
-        loginPage.login("", "secret_sauce");
+        loginPage.loginWithNegativeCred("", "secret_sauce");
         assertEquals(loginPage.getErrorMessage(),
                 "Epic sadface: Username is required",
                 "SO BAAAAAD");
@@ -47,7 +47,7 @@ public class LoginTest extends BaseTest {
     @Test(priority = 3, groups = "regression")
     public void chekLoginWithEmptyPassword() {
         loginPage.open();
-        loginPage.login("standard_user", "");
+        loginPage.loginWithNegativeCred("standard_user", "");
         assertEquals(loginPage.getErrorMessage(),
                 "Epic sadface: Password is required",
                 "SO BBAAAAD");
@@ -56,7 +56,7 @@ public class LoginTest extends BaseTest {
     @Test(enabled = false)
     public void chekLoginWithNegativeCred() {
         loginPage.open();
-        loginPage.login("test", "test");
+        loginPage.loginWithNegativeCred("test", "test");
         assertEquals(loginPage.getErrorMessage(),
                 "Epic sadface: Username and password do not match any user in this service",
                 "SO BAAAAD");
@@ -75,11 +75,10 @@ public class LoginTest extends BaseTest {
     @Test(dataProvider = "Параметризированный тест для негативного логина")
     public void chekLoginWithNegativeCred1(String user, String password, String errorMessage) {
         loginPage.open();
-        loginPage.login(user, password);
+        loginPage.loginWithNegativeCred(user, password);
         assertEquals(loginPage.getErrorMessage(),
                 errorMessage,
                 "SO BAAAAD");
-
         assertThat(loginPage.getErrorMessage()).isEqualTo(errorMessage);
     }
 }
