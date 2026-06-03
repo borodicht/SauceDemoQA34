@@ -10,14 +10,15 @@ name: SauceDemo CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master", "feature/*" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "master", "feature/*" ]
+  workflow_dispatch:
 
 jobs:
   build:
 
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: checkout
@@ -28,10 +29,6 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - uses: abhi1693/setup-browser@v0.3.4
-      with:
-        browser: firefox
-        version: latest
     - name: Run tests
       run: mvn clean test
 
