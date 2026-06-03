@@ -24,11 +24,12 @@ public class BaseTest {
     ProductsPage productsPage;
     CartPage cartPage;
 
+    String user = System.getProperty("user");
+    String password = System.getProperty("password");
+
     @Parameters({"browser"})
     @BeforeMethod(alwaysRun = true, description = "Настройка драйвера")
     public void setUp(@Optional("chrome") String browser, ITestContext iTestContext) {
-
-        System.out.println(System.getProperty("blablabla"));
 
         if (browser.equalsIgnoreCase("chrome")) {
             ChromeOptions options = new ChromeOptions();

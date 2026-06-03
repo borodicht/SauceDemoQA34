@@ -28,7 +28,7 @@ public class LoginTest extends BaseTest {
     @Issue("BUG-01")
     public void checkLoginWithPositiveCred() {
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         assertEquals(productsPage.getTitle(),
                 "Products",
                 "SO BAAAAAAD");
@@ -38,7 +38,7 @@ public class LoginTest extends BaseTest {
             testName = "Проверка логина с пустым именем пользователя", groups = "regression")
     public void chekLoginWithEmptyUserName() {
         loginPage.open();
-        loginPage.loginWithNegativeCred("", "secret_sauce");
+        loginPage.loginWithNegativeCred("", password);
         assertEquals(loginPage.getErrorMessage(),
                 "Epic sadface: Username is required",
                 "SO BAAAAAD");
@@ -47,7 +47,7 @@ public class LoginTest extends BaseTest {
     @Test(priority = 3, groups = "regression")
     public void chekLoginWithEmptyPassword() {
         loginPage.open();
-        loginPage.loginWithNegativeCred("standard_user", "");
+        loginPage.loginWithNegativeCred(user, "");
         assertEquals(loginPage.getErrorMessage(),
                 "Epic sadface: Password is required",
                 "SO BBAAAAD");

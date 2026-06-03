@@ -20,6 +20,10 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+      USER: ${{secrets.SD_USER}}
+      PASS: ${{secrets.SD_PASSWORD}}
+
     steps:
     - name: checkout
       uses: actions/checkout@v4
@@ -30,6 +34,6 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Run tests
-      run: mvn clean test
+      run: mvn clean test -Duser=$USER -Dpassword=$PASS
 
       
