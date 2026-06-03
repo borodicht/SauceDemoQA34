@@ -30,6 +30,8 @@ public class BaseTest {
     @Parameters({"browser"})
     @BeforeMethod(alwaysRun = true, description = "Настройка драйвера")
     public void setUp(@Optional("chrome") String browser, ITestContext iTestContext) {
+        System.out.println(user);
+        System.out.println(password);
 
         if (browser.equalsIgnoreCase("chrome")) {
             ChromeOptions options = new ChromeOptions();
