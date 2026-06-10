@@ -13,6 +13,7 @@ import org.testng.annotations.*;
 import pages.CartPage;
 import pages.LoginPage;
 import pages.ProductsPage;
+import utils.PropertyReader;
 
 import java.util.HashMap;
 
@@ -24,8 +25,8 @@ public class BaseTest {
     ProductsPage productsPage;
     CartPage cartPage;
 
-    String user = System.getProperty("user");
-    String password = System.getProperty("password");
+    String user = System.getProperty("user", PropertyReader.getProperty("user"));
+    String password = System.getProperty("password", PropertyReader.getProperty("password"));
 
     @Parameters({"browser"})
     @BeforeMethod(alwaysRun = true, description = "Настройка драйвера")
