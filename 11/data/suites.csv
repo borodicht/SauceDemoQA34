@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","1","chekLoginWithNegativeCred","SauceDemo suite","2026-06-10","unknown","2026-06-10","tests.LoginTest","Chrome","tests.LoginTest","chekLoginWithNegativeCred"
+"Проврка козины","1693","checkCart","SauceDemo suite","2026-06-10","passed","2026-06-10","tests.CartTest","Firefox","tests.CartTest","checkCart"
+"","566","chekLoginWithNegativeCred1","SauceDemo suite","2026-06-10","passed","2026-06-10","tests.LoginTest","Chrome","tests.LoginTest","chekLoginWithNegativeCred1"
+"","720","checkLocators","SauceDemo suite","2026-06-10","passed","2026-06-10","tests.LocatorsTest","Firefox","tests.LocatorsTest","checkLocators"
+"","896","chekLoginWithNegativeCred1","SauceDemo suite","2026-06-10","passed","2026-06-10","tests.LoginTest","Chrome","tests.LoginTest","chekLoginWithNegativeCred1"
